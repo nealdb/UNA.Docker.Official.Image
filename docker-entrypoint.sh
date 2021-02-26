@@ -29,6 +29,7 @@ qs() {
 # Unzip
 
 if [ ! -e "index.php" ] && [ ! -e "inc/version.inc.php" ]; then
+    cd /tmp
     su $UNA_USER -c "curl -fSL $(qs ${UNA_ZIP_DOWNLOAD_URL:-$VAR_DEF_ZIP_DOWNLOAD_URL}) -o una.zip"
     su $UNA_USER -c "unzip -o una.zip"
     su $UNA_USER -c "rm una.zip"
